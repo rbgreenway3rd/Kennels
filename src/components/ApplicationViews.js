@@ -13,37 +13,38 @@ import { EmployeeList } from "./employee/EmployeeList";
 export const ApplicationViews = () => {
   return (
     <>
+      {/*All providers are wrapped inside of eachother so each route is guranteed to have all information required */}
       {/* Render the location list when http://localhost:3000/ */}
       <LocationProvider>
-        <Route exact path="/locations">
-          <LocationList />
-        </Route>
+        <AnimalProvider>
+          <EmployeeProvider>
+            <CustomerProvider>
+              <Route exact path="/locations">
+                <LocationList />
+              </Route>
+
+              {/* Render the animal list when http://localhost:3000/animals */}
+              <Route path="/animals">
+                <AnimalList />
+              </Route>
+
+              <Route exact path="/animals/create">
+                <AnimalForm />
+              </Route>
+
+              {/* Render the customer list when http://localhost:3000/customers */}
+              <Route path="/customers">
+                <CustomerList />
+              </Route>
+
+              {/* Render the employee list when http://localhost:3000/employees */}
+              <Route path="/employees">
+                <EmployeeList />
+              </Route>
+            </CustomerProvider>
+          </EmployeeProvider>
+        </AnimalProvider>
       </LocationProvider>
-
-      {/* Render the animal list when http://localhost:3000/animals */}
-      <AnimalProvider>
-        <Route path="/animals">
-          <AnimalList />
-        </Route>
-
-        <Route exact path="/animals/create">
-          <AnimalForm />
-        </Route>
-      </AnimalProvider>
-
-      {/* Render the customer list when http://localhost:3000/customers */}
-      <CustomerProvider>
-        <Route path="/customers">
-          <CustomerList />
-        </Route>
-      </CustomerProvider>
-
-      {/* Render the employee list when http://localhost:3000/employees */}
-      <EmployeeProvider>
-        <Route path="/employees">
-          <EmployeeList />
-        </Route>
-      </EmployeeProvider>
     </>
   );
 };
