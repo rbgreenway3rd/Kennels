@@ -20,7 +20,9 @@ export const CustomerList = () => {
             id={`customer--${customer.id}`}
           >
             <div className="customer__name">Name: {customer.name}</div>
-            <div className="customer__breed">Breed: {customer.breed}</div>
+            <div className="customer__addreess">
+              Address: {customer.address}
+            </div>
           </div>
         );
       })}
