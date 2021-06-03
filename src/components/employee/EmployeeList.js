@@ -15,7 +15,11 @@ export const EmployeeList = () => {
     <section className="employees">
       {employees.map((employee) => {
         return (
-          <div className="employee" id={`employee--${employee.id}`}>
+          <div
+            className="employee"
+            key={employee.id}
+            id={`employee--${employee.id}`}
+          >
             <div className="employee__name">Name: {employee.name}</div>
             <div className="employee__location">
               Location: {employee.locationId}
