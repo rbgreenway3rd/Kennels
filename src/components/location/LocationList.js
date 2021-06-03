@@ -20,6 +20,7 @@ export const LocationList = () => {
             id={`location--${location.id}`}
           >
             <div className="location__name">Name: {location.name}</div>
+            <div className="location__id">Location #{location.id}</div>
             <div className="location__address">Address: {location.address}</div>
           </div>
         );
