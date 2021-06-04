@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { LocationProvider } from "./location/LocationProvider";
 import { LocationList } from "./location/LocationList";
+import { LocationForm } from "./location/LocationForm";
 import { AnimalProvider } from "./animal/AnimalProvider";
 import { AnimalList } from "./animal/AnimalList";
 import { AnimalForm } from "./animal/AnimalForm";
@@ -9,6 +10,7 @@ import { CustomerProvider } from "./customer/CustomerProvider";
 import { CustomerList } from "./customer/CustomerList";
 import { EmployeeProvider } from "./employee/EmployeeProvider";
 import { EmployeeList } from "./employee/EmployeeList";
+import { EmployeeForm } from "./employee/EmployeeForm";
 
 export const ApplicationViews = () => {
   return (
@@ -19,8 +21,11 @@ export const ApplicationViews = () => {
         <AnimalProvider>
           <EmployeeProvider>
             <CustomerProvider>
-              <Route exact path="/locations">
+              <Route path="/locations">
                 <LocationList />
+              </Route>
+              <Route exact path="/locations/create">
+                <LocationForm />
               </Route>
 
               {/* Render the animal list when http://localhost:3000/animals */}
@@ -40,6 +45,10 @@ export const ApplicationViews = () => {
               {/* Render the employee list when http://localhost:3000/employees */}
               <Route path="/employees">
                 <EmployeeList />
+              </Route>
+
+              <Route exact path="/employees/create">
+                <EmployeeForm />
               </Route>
             </CustomerProvider>
           </EmployeeProvider>
