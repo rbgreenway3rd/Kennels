@@ -1,12 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { AnimalContext } from "./AnimalProvider";
 import { Animal } from "./Animal";
 import "./Animal.css";
 
-export const AnimalList = ({ history }) => {
+export const AnimalList = () => {
   const { getAnimals, animals } = useContext(AnimalContext);
 
+  const history = useHistory();
   // Initialization effect hook -> Go get animal data
   useEffect(() => {
     getAnimals();

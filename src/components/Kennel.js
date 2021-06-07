@@ -23,7 +23,7 @@ export const Kennel = () => (
       }}
     />
 
-    <Route path="/login">
+    <Route exact path="/login">
       <Login />
     </Route>
     <Route path="/register">
