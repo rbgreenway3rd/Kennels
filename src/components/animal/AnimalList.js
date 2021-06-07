@@ -1,7 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AnimalContext } from "./AnimalProvider";
-import { Animal } from "./Animal";
 import "./Animal.css";
 
 export const AnimalList = () => {
